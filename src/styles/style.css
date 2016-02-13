@@ -1,8 +1,4 @@
 /* main styles */
-@require 'nib'
-@require 'jeet'
-
-global-reset()
 
 html, body {
   height: 100%;
@@ -12,7 +8,7 @@ html, body {
 body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
-  font-size: 14px/1.5;
+  font-size: calc(14px / 1.5);
 
   color: #333;
   background-color: #fff;
@@ -25,12 +21,10 @@ body {
 }
 
 .navbar {
-  /* jeet layout */
-  col(1/1)
-  align(horizontal)
+  lost-center: 960px;
   padding-top: 30px;
 
-  a {
+  & a {
     color: inherit;
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
@@ -42,23 +36,21 @@ body {
     line-height: 1;
 
     &:focus, &:active {
-	  /* nib opacity */
       opacity: .5;
     }
   }
 
-  .navbar-title {
+  & .navbar-title {
     display: none;
     position: static;
     float: left;
     left: 50%;
   }
 
-  .navbar-links {
-    /* jeet layout */
-    center()
+  & .navbar-links {
+	lost-center: 768px;
 
-    .navbar-link {
+    & .navbar-link {
       padding: 0 15px;
       border-right: 1px solid rgba(255, 255, 255, 0.3);
 
@@ -79,22 +71,34 @@ body {
 }
 
 .main-header-content {
-  /* jeet layout */
-  align()
+  position: absolute;
+  transform-style: preserve-3d;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%)
 }
 
 .logo {
   font-family: 'Damion', cursive;
-  font-size: 7rem;;
+  font-size: 7vw;
+  font-weight: 300;
+  margin: .4rem;
+
+  @media screen and (max-width: 700px) {
+    font-size: 3rem;
+  }
 }
 
 .main-header-text {
   width: 90vw;
   animation: fadein 2s;
-  margin-bottom: 60px;
-  font-size: 41px;
+  margin: 20px 0 60px;
   font-weight: 300;
-  line-height: 60px;
+  font-size: 2.5vw;
+
+  @media screen and (max-width: 700px) {
+    font-size: 1.5rem;
+  }
 }
 
 .main-header-btn {
@@ -119,42 +123,41 @@ body {
 }
 
 .main-info {
-  /* jeet layout */
-  center(max-width: 1024px)
+  lost-center: 1024px;
   background-color: #fff;
 }
 
 .benefits {
-  /* jeet layout */
-  col(1/1)
-  center(max-width: 1024px)
-
-  padding: 0 50px;
+  lost-center: 1024px 50px;
   margin: 100px 0 100px 0;
 
-  .benefit {
-    margin: 50px;
+  & .benefit {
+    margin: 50px 0;
+	clear: both;
 
-    @media screen and (min-width: 700px) {
-      /* jeet layout */
-      col(1/2, cycle: 2)
+    @media screen and (min-width: 768px) {
+	  lost-column: 1/2 2 3%;
+
+	  &:nth-child(2n+1) {
+    	clear: both;
+	  }
     }
 
-    @media screen and (max-width: 700px) {
-      /* jeet layout */
-      col(1/2, cycle: 4)
-      stack()
+    @media screen and (max-width: 768px) {
+	  width: 100%;
 
-      float: left;
+	  &:nth-child(1n) {
+	    clear: both;
+	  }
     }
 
-    .benefit-title {
+    & .benefit-title {
       margin-bottom: 14px;
       font-size: 22px;
       font-weight: 500;
     }
 
-    .benefit-text {
+    & .benefit-text {
       color: #7f8c8d;
       font-size: 16px;
       line-height: 26px;
@@ -165,26 +168,23 @@ body {
 .sample {
   min-height: 150px;
 
-  .sample-code {
-    /* jeet layout */
-    col(1/2)
+  & .sample-code {
+	lost-column: 1/2;
 
     font-size: 16px;
     line-height: 18px;
 
-    code {
+    & code {
       border-radius: 2px;
     }
 
     @media screen and (max-width: 768px) {
-	  /* jeet layout */
-      stack()
+	  width: 100%;
     }
   }
 
   .sample-text {
-    /* jeet layout */
-    col(1/2)
+	lost-column: 1/2;
 
     margin-bottom: 1.5em;
     font-size: 18px;
@@ -192,8 +192,7 @@ body {
     color: #555;
 
     @media screen and (max-width: 768px) {
-      /* jeet layout */
-      stack(0, center)
+	  width: 100%;
     }
   }
 }

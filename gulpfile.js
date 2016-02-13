@@ -8,15 +8,12 @@ var browserSync = require('browser-sync');
 var gif = require('gulp-if');
 var cached = require('gulp-cached');
 var uglify = require('gulp-uglify');
-var stylus = require('gulp-stylus');
-var nib = require('nib');
-var jeet = require('jeet');
 var ghpages = require('gulp-gh-pages');
 var ngmin = require('gulp-ngmin');
 var useref = require('gulp-useref');
 var saveLicense = require('uglify-save-license');
 
-var meals = chef({
+var ingredients = {
 	src: 'src/',
 	dest: 'dist/',
 	clean: {},
@@ -52,15 +49,28 @@ var meals = chef({
 		task: make
 	},
 	build: ['clean', { parallel: ['assets', 'make'] }],
-	watch: ['assets', 'make'],
-	serve: ['build', sync, 'watch'],
+	serve: ['build', watch],
 	default: 'build'
-});
+};
 
-function sync() {
-	return browserSync.init({
+var meals = chef(ingredients);
+
+gulp.registry(meals);
+
+function watch() {
+	browserSync.init({
 		server: this.config.dest.path
 	});
+
+	gulp.watch(ingredients.src + '**/*')
+		.on('change', run);
+
+	function run() {
+		return gulp.parallel(gulp.task('make'), browserSync.reload)(done);
+	}
+
+	function done() {
+	}
 }
 
 function deploy() {
@@ -83,8 +93,7 @@ function make() {
 	var nonVendor = 'scripts/**/*.js';
 	var postcss = require('gulp-postcss');
 	var processors = [
-		require('lost'),
-		require('postcss-autoreset'),
+		require('postcss-normalize'),
 		require('postcss-cssnext')({
 			features: {
 				autoprefixer: {
@@ -92,20 +101,13 @@ function make() {
 				}
 			}
 		}),
-		require('cssnano')
+		require('lost'),
+		require('cssnano')({
+		})
 	];
 
-	function styl() {
-		return gif('*.styl', stylus({
-			use: [
-				nib(),
-				jeet()
-			]
-		}));
-	}
-
 	return gulp.src(config.src.globs, config.src.options)
-		.pipe(useref({}, styl))
+		.pipe(useref())
 		.pipe(cached('build'))
 		.pipe(gif(nonVendor, ngmin()))
 		.pipe(gif('*.js', uglify({
@@ -116,5 +118,3 @@ function make() {
 		.pipe(gulp.dest(config.dest.path))
 		.pipe(browserSync.stream());
 }
-
-gulp.registry(meals);
