@@ -93,7 +93,7 @@ function make() {
 	var nonVendor = 'scripts/**/*.js';
 	var postcss = require('gulp-postcss');
 	var processors = [
-		require('postcss-normalize'),
+		require('postcss-import'),
 		require('postcss-cssnext')({
 			features: {
 				autoprefixer: {

@@ -14,6 +14,7 @@ html, body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
+
 .plugin-list-container {
     overflow-x: hidden;
     overflow-y: scroll;
@@ -144,7 +145,7 @@ html, body {
     border-color: #555;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     .plugin-list {
         margin-left: 0;
         margin-right: 0;
