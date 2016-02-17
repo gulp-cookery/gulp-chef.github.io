@@ -79,14 +79,9 @@ body {
 }
 
 .logo {
-  font-family: 'Damion', cursive;
-  font-size: 7vw;
-  font-weight: 300;
+  max-width: 40vh;
+  max-height: 20vh;
   margin: .4rem;
-
-  @media screen and (max-width: 768px) {
-    font-size: 3rem;
-  }
 }
 
 .main-header-text {
