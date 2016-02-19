@@ -9,7 +9,6 @@ var gif = require('gulp-if');
 var cached = require('gulp-cached');
 var uglify = require('gulp-uglify');
 var ghpages = require('gulp-gh-pages');
-var ngmin = require('gulp-ngmin');
 var useref = require('gulp-useref');
 var saveLicense = require('uglify-save-license');
 
@@ -36,7 +35,6 @@ var ingredients = {
 		src: {
 			globs: [
 				'favicon.ico',
-				'logo.svg',
 				'opensearch.xml',
 				'img/*'
 			],
@@ -90,7 +88,6 @@ function assets() {
 
 function make() {
 	var config = this.config;
-	var nonVendor = 'scripts/**/*.js';
 	var postcss = require('gulp-postcss');
 	var processors = [
 		require('postcss-import'),
@@ -109,7 +106,6 @@ function make() {
 	return gulp.src(config.src.globs, config.src.options)
 		.pipe(useref())
 		.pipe(cached('build'))
-		.pipe(gif(nonVendor, ngmin()))
 		.pipe(gif('*.js', uglify({
 			mangle: false,
 			preserveComments: saveLicense
