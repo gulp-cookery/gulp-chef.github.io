@@ -1,5 +1,7 @@
 /* main styles */
 
+@import "highlight";
+
 html, body {
   height: 100%;
   width: 100%;

@@ -4,13 +4,7 @@ var gulp = require('gulp');
 var chef = require('gulp-chef');
 
 var browserSync = require('browser-sync');
-
-var gif = require('gulp-if');
-var cached = require('gulp-cached');
-var uglify = require('gulp-uglify');
 var ghpages = require('gulp-gh-pages');
-var useref = require('gulp-useref');
-var saveLicense = require('uglify-save-license');
 
 var ingredients = {
 	src: 'src/',
@@ -31,22 +25,49 @@ var ingredients = {
 		},
 		task: deploy
 	},
-	assets: {
-		src: {
-			globs: [
-				'favicon.ico',
-				'opensearch.xml',
-				'img/*'
-			],
-			base: 'src/'
-		},
-		task: assets
-	},
 	make: {
-		src: 'index.html',
-		task: make
+		script: {
+			recipe: 'browserify',
+			bundle: {
+				entry: 'index.js',
+				file: 'scripts.js',
+				transform: ['stringify', 'browserify-shim'],
+				uglify: true
+			}
+		},
+		style: {
+			src: 'styles.css',
+			recipe: 'postcss',
+			processors: {
+				import: {},
+				cssnext: {
+					features: {
+						autoprefixer: {
+							browser: 'last 2 versions'
+						}
+					}
+				},
+				bem: {},
+				lost: {},
+				cssnano: {}
+			}
+		},
+		markup: {
+			src: 'index.html',
+			recipe: 'copy'
+		},
+		assets: {
+			src: {
+				globs: [
+					'favicon.ico',
+					'opensearch.xml',
+					'gulp-chef-white-text.svg'
+				]
+			},
+			task: assets
+		}
 	},
-	build: ['clean', { parallel: ['assets', 'make'] }],
+	build: ['clean', 'make'],
 	serve: ['build', watch],
 	default: 'build'
 };
@@ -82,35 +103,6 @@ function assets() {
 	var config = this.config;
 
 	return gulp.src(config.src.globs, config.src.options)
-		.pipe(gulp.dest(config.dest.path))
-		.pipe(browserSync.stream());
-}
-
-function make() {
-	var config = this.config;
-	var postcss = require('gulp-postcss');
-	var processors = [
-		require('postcss-import'),
-		require('postcss-cssnext')({
-			features: {
-				autoprefixer: {
-					browser: 'last 2 versions'
-				}
-			}
-		}),
-		require('lost'),
-		require('cssnano')({
-		})
-	];
-
-	return gulp.src(config.src.globs, config.src.options)
-		.pipe(useref())
-		.pipe(cached('build'))
-		.pipe(gif('*.js', uglify({
-			mangle: false,
-			preserveComments: saveLicense
-		})))
-		.pipe(gif('*.css', postcss(processors)))
 		.pipe(gulp.dest(config.dest.path))
 		.pipe(browserSync.stream());
 }
