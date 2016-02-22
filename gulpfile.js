@@ -32,7 +32,9 @@ var ingredients = {
 				entry: 'index.js',
 				file: 'scripts.js',
 				transform: ['stringify', 'browserify-shim'],
-				uglify: true
+				production: {
+					uglify: true
+				}
 			}
 		},
 		style: {
@@ -49,7 +51,9 @@ var ingredients = {
 				},
 				bem: {},
 				lost: {},
-				cssnano: {}
+				production: {
+					cssnano: {}
+				}
 			}
 		},
 		markup: {
