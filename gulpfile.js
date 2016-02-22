@@ -65,7 +65,8 @@ var ingredients = {
 				globs: [
 					'favicon.ico',
 					'opensearch.xml',
-					'gulp-chef-white-text.svg'
+					'gulp-chef-white-text.svg',
+					'blackList.json'
 				]
 			},
 			task: assets
