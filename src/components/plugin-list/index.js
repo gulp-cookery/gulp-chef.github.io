@@ -1,7 +1,8 @@
 'use strict';
 
 var angular = require('angular');
-var ngInfiniteScroll = require('ng-infinite-scroll');
+
+require('ng-infinite-scroll');
 
 angular.module('plugin-list', ['infinite-scroll'])
 .directive('pluginList', require('./directive'))
