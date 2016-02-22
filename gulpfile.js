@@ -81,15 +81,7 @@ function watch() {
 		server: this.config.dest.path
 	});
 
-	gulp.watch(ingredients.src + '**/*')
-		.on('change', run);
-
-	function run() {
-		return gulp.parallel(gulp.task('make'), browserSync.reload)(done);
-	}
-
-	function done() {
-	}
+	gulp.watch(this.config.src.globs[0] + '**/*', gulp.parallel(gulp.task('make'), browserSync.reload));
 }
 
 function deploy() {
