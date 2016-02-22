@@ -29,7 +29,7 @@
 
 			<div class="navbar-links">
 				<a href="https://github.com/gulp-cookery/gulp-chef#gulp-chef" class="navbar-link">Docs</a>
-				<a href="/plugins" class="navbar-link">Plugins</a>
+				<a href="#/plugins" class="navbar-link">Plugins</a>
 				<a href="https://gitter.im/gulp-cookery/gulp-chef" class="navbar-link">Gitter</a>
 			</div>
 
@@ -43,8 +43,8 @@
 
 	</div>
 
-	<div ng-controller="AppController as app">
-		<div class="main-info" ng-viewport></div>
+	<div class="main-info" ng-controller="AppController as app">
+		<div ng-view></div>
 	</div>
 
 	<script src="scripts.js"></script>
