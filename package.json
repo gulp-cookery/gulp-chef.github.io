@@ -36,7 +36,6 @@
     "gulp-gh-pages": "^0.5.4",
     "lost": "^6.7.2",
     "normalize.css": "^3.0.3",
-    "postcss-bem": "^0.4.1",
     "postcss-cssnext": "^2.4.0",
     "postcss-import": "^8.0.2",
     "stringify": "^4.0.1"
