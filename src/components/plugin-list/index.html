@@ -1,20 +1,21 @@
-<div>
+<div class="plugin-info">
 	<div class="plugin-list-content good-font">
+		<link href="//fonts.googleapis.com/css?family=Grand+Hotel|Roboto+Slab:400,300" rel="stylesheet">
 		<nav class="fixed-title" role="navigation">
-			<a class="logo" href="http://gulp-cookery.github.io/gulp-chef" role="banner">gulp-chef</a>
-			<input ng-change="limit=15" type="search" role="search" class="ng-cloak good-font plugin-search" placeholder="Search {{ (ctrl.data | filter:notBlacklisted).length }} plugins..."
+			<a class="logo-small" href="#/" role="banner"><img class="svg-inject" src="gulp-chef-white-text.svg" /></a>
+			<input ng-change="limit=15" type="search" role="search" class="ng-cloak good-font plugin-search" placeholder="Search {{ (data | filter:notBlacklisted).length }} plugins..."
 			ng-model="search" autofocus>
 		</nav>
 
 		<section class="ng-cloak plugin-list-container" ng-init="limit=20" infinite-scroll="limit=limit+25" role="main">
-			<ul class="plugin-list" ng-show="ctrl.data" role="list">
-				<li class="no-results" ng-hide="(ctrl.data | filter:search | filter:notBlacklisted).length">No results found</li>
+			<ul class="plugin-list" ng-show="data" role="list">
+				<li class="no-results" ng-hide="(data | filter:search | filter:notBlacklisted).length">No results found</li>
 
-				<li role="listitem" class="plugin" ng-repeat="plugin in ctrl.data | filter:search | filter:notBlacklisted | limitTo:limit track by $index">
-					<a ng-href="https://www.npmjs.com/package/{{plugin.name}}/" target="_blank" title="Install" class="title" ng-bind="plugin.name"></a>
-					<div class="description" ng-bind="plugin.description"></div>
-					<div class="more-info">
-						<div class="tags">
+				<li role="listitem" class="plugin" ng-repeat="plugin in data | filter:search | filter:notBlacklisted | limitTo:limit track by $index">
+					<a ng-href="https://www.npmjs.com/package/{{plugin.name}}/" target="_blank" title="Install" class="plugin-title" ng-bind="plugin.name"></a>
+					<div class="plugin-description" ng-bind="plugin.description"></div>
+					<div class="plugin-more-info">
+						<div class="plugin-tags">
 							<a ng-repeat="keyword in plugin.keywords | orderBy:orderByGulpKeywords track by $index" ng-href="http://npmsearch.com/?q=keywords:{{keyword}}"
 							target="_blank" ng-bind="keyword"></a>
 						</div>

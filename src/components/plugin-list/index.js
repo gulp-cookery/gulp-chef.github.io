@@ -1,7 +1,6 @@
 'use strict';
 
 var angular = require('angular');
-
 require('ng-infinite-scroll');
 
 angular.module('plugin-list', ['infinite-scroll'])

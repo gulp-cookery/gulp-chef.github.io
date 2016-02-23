@@ -1,6 +1,7 @@
 'use strict';
 
 var angular = require('angular');
+var svg = require('../../effects/svg-inject');
 
 module.exports = ['$scope', '$http', '$location', '$q', function PluginListCtrl($scope, $http, $location, $q) {
 	var fields = ['name', 'keywords', 'rating', 'description', 'author', 'modified', 'homepage', 'version'];
@@ -30,7 +31,7 @@ module.exports = ['$scope', '$http', '$location', '$q', function PluginListCtrl(
 	var makeRequest = function (start, size) {
 		return $http.get('http://npmsearch.com/query', {
 			params: {
-				q: ['keywords:gulp-ccr', 'keywords:gulpccr', 'keywords:gulpchefplugin'],
+				q: ['keywords:gulp-ccr'],
 				fields: fields.join(','),
 				start: start,
 				size: size,
@@ -97,4 +98,6 @@ module.exports = ['$scope', '$http', '$location', '$q', function PluginListCtrl(
 	$scope.notBlacklisted = function (item) {
 		return (item && !$scope.blackList[item.name]);
 	};
+
+	svg();
 }];

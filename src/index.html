@@ -19,33 +19,7 @@
 
 </head>
 
-<body ng-app="site">
-
-	<div class="main-header">
-
-		<nav class="navbar">
-
-			<a href="http://gulp-cookery.github.io/gulp-chef" class="navbar-title">gulp-chef</a>
-
-			<div class="navbar-links">
-				<a href="https://github.com/gulp-cookery/gulp-chef#gulp-chef" class="navbar-link">Docs</a>
-				<a href="#/plugins" class="navbar-link">Plugins</a>
-				<a href="https://gitter.im/gulp-cookery/gulp-chef" class="navbar-link">Gitter</a>
-			</div>
-
-		</nav>
-
-		<div class="main-header-content">
-			<img class="logo" src="gulp-chef-white-text.svg"/>
-			<p class="main-header-text">An elegant, intuitive way to reuse gulp tasks</p>
-			<a class="main-header-btn" href="https://github.com/gulp-cookery/gulp-chef#getting-started">Try it now</a>
-		</div>
-
-	</div>
-
-	<div class="main-info" ng-controller="AppController as app">
-		<div ng-view></div>
-	</div>
+<body ng-app="site" ng-view>
 
 	<script src="scripts.js"></script>
 

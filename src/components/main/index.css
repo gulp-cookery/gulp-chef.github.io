@@ -2,24 +2,18 @@
 
 @import "highlight";
 
-html, body {
-  height: 100%;
-  width: 100%;
+.main-info {
+	width: 100%;
+	height: 100%;
 }
 
-body {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  font-size: calc(14px / 1.5);
-
-  color: #333;
-  background-color: #fff;
-
-  -webkit-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  font-feature-settings: 'liga', 'kern';
+.main-header {
+  height: 100%;
+  width: 100%;
+  min-height: 450px;
+  color: #fff;
+  text-align: center;
+  background-color: #cf4646;
 }
 
 .navbar {
@@ -61,15 +55,6 @@ body {
       }
     }
   }
-}
-
-.main-header {
-  height: 100%;
-  width: 100%;
-  min-height: 450px;
-  color: #fff;
-  text-align: center;
-  background-color: #cf4646;
 }
 
 .main-header-content {
@@ -119,9 +104,13 @@ body {
   }
 }
 
-.main-info {
+.main-info-content {
   lost-center: 1024px;
   background-color: #fff;
+}
+
+.section {
+  min-height: 150px;
 }
 
 .benefits {
@@ -162,6 +151,9 @@ body {
   }
 }
 
+.getting-started {
+}
+
 .sample {
   min-height: 150px;
 
@@ -194,6 +186,9 @@ body {
   }
 }
 
+.document {
+}
+
 @keyframes fadein {
   from {
     opacity: 0;
@@ -201,4 +196,38 @@ body {
   to {
     opacity: 1;
   }
+}
+
+/* Shutter Out Horizontal */
+.hvr-shutter-out-horizontal {
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  transition-property: color;
+  transition-duration: 0.3s;
+}
+
+.hvr-shutter-out-horizontal:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #2098d1;
+  transform: scaleX(0);
+  transform-origin: 50%;
+  transition-property: transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+
+.hvr-shutter-out-horizontal:hover, .hvr-shutter-out-horizontal:focus, .hvr-shutter-out-horizontal:active {
+  color: white;
+}
+
+.hvr-shutter-out-horizontal:hover:before, .hvr-shutter-out-horizontal:focus:before, .hvr-shutter-out-horizontal:active:before {
+  transform: scaleX(1);
 }

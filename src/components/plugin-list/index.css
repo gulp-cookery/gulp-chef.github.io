@@ -17,7 +17,6 @@
 
 .plugin-list-container {
     overflow-x: hidden;
-    overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -34,13 +33,25 @@
     top: 0;
     left: 0;
     z-index: 3;
+	animation: fadein 1s;
 }
 
-.logo {
+.logo-small {
+	display: block;
     position: absolute;
+    top: 8px;
     left: 20px;
-    text-decoration: none;
     color: inherit;
+	height: 32px;
+}
+
+.logo-small img, .logo-small svg {
+	height: 32px;
+	width: 128px;
+
+	& path {
+		fill: #cf4646;
+	}
 }
 
 .plugin-search {
@@ -58,6 +69,10 @@
     margin: auto;
     max-width: 500px;
     width: 50%;
+}
+
+input[type="search"] {
+    box-sizing: border-box;
 }
 
 .plugin-search:focus {
@@ -96,7 +111,7 @@
     border-bottom: 0;
 }
 
-.title {
+.plugin-title {
     height: 60px;
     line-height: 60px;
     text-decoration: none;
@@ -105,11 +120,11 @@
     color: #333;
 }
 
-.title:hover {
+.plugin-title:hover {
     text-decoration: underline;
 }
 
-.description {
+.plugin-description {
     min-height: 40px;
     line-height: 40px;
     color: #2B2A29;
@@ -118,12 +133,12 @@
     word-break: keep-all;
 }
 
-.more-info {
+.plugin-more-info {
     margin-top: 20px;
     color: #999;
 }
 
-.tags a {
+.plugin-tags a {
     display: inline-block;
     transition: all 300ms;
 
@@ -139,7 +154,7 @@
     color: #66696A;
 }
 
-.tags a:hover {
+.plugin-tags a:hover {
     border-color: #555;
 }
 
@@ -150,7 +165,7 @@
         padding: 10px;
     }
 
-    .logo, .more-info {
+    .logo-small, .plugin-more-info {
         display: none;
     }
 

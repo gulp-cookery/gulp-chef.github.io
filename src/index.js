@@ -21,7 +21,6 @@ function AppController($router) {
 require('angular-route');
 
 angular.module('site', ['ngRoute', 'main-info', 'plugin-list'])
-.controller('AppController', AppController)
 .config(['$routeProvider', function ($routeProvider) {
 	$routeProvider
 	.when('/', {
@@ -37,6 +36,3 @@ angular.module('site', ['ngRoute', 'main-info', 'plugin-list'])
 		redirectTo: '/'
 	});
 }]);
-
-function AppController() {
-}
