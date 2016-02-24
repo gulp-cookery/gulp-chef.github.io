@@ -14,43 +14,89 @@
 		<div class="main-header-content">
 			<img class="logo" src="gulp-chef-white-text.svg"/>
 			<p class="main-header-text">An elegant, intuitive way to reuse gulp tasks</p>
-			<a class="main-header-btn" href="https://github.com/gulp-cookery/gulp-chef#getting-started">Try it now</a>
+			<a class="main-header-btn" href="#/#installation">Try it now</a>
 		</div>
 	</div>
 
 	<div class="main-info-content">
-		<div id="benefits" class="benefits section">
+		<section id="benefits" class="benefits">
+			<div class="section-content">
+				<div class="benefit">
+					<h1 class="benefit-title">Intuitive</h1>
+					<p class="benefit-text">By one to one configuration to task mapping, your build works exactly as you would imagine.</p>
+				</div>
 
-			<div class="benefit">
-				<h1 class="benefit-title">Intuitive</h1>
-				<p class="benefit-text">By one to one configuration to task mapping, your build works exactly as you would imagine.</p>
+				<div class="benefit">
+					<h1 class="benefit-title">Elegant</h1>
+					<p class="benefit-text">Using gulp best practices, control tasks execution and combine streams with ease. Keeps things simple yet composable and makes complex tasks manageable yet flexible.</p>
+				</div>
+
+				<div class="benefit">
+					<h1 class="benefit-title">Scalable</h1>
+					<p class="benefit-text">Starting your gulpfile.js as usual, then incremental enhance or split tasks when your project grow big.</p>
+				</div>
+
+				<div class="benefit">
+					<h1 class="benefit-title">Sharable</h1>
+					<p class="benefit-text">Tasks can be shared as normal node modules via npm.</p>
+				</div>
+
+				<div class="benefit">
+					<h1 class="benefit-title">Non-Intrusive</h1>
+					<p class="benefit-text">Not forcing or restricting you to gulp-chef's API.</p>
+				</div>
+
+				<div class="benefit">
+					<h1 class="benefit-title">DRY</h1>
+					<p class="benefit-text">By abstracting changes in configuration, you don't repeat your tasks with minor differences among projects.</p>
+				</div>
 			</div>
 
-			<div class="benefit">
-				<h1 class="benefit-title">Elegant</h1>
-				<p class="benefit-text">Using gulp best practices, control tasks execution and combine streams with ease. Keeps things simple yet composable and makes complex tasks manageable yet flexible.</p>
-			</div>
+		</section>
 
-			<div class="benefit">
-				<h1 class="benefit-title">Agile</h1>
-				<p class="benefit-text">Starting your gulpfile.js as usual, then incremental enhance or split tasks when your project grow big.</p>
-			</div>
+		<section id="installation" class="installation section">
+			<div class="section-content">
+				<h2>Getting started is easy.</h2>
 
-			<div class="benefit">
-				<h1 class="benefit-title">Sharable</h1>
-				<p class="benefit-text">Tasks can be shared as normal node modules via npm.</p>
-			</div>
+				<h3>Replace previous version of gulp with gulp-cli</h3>
 
-			<div class="benefit">
-				<h1 class="benefit-title">Non-Intrusive</h1>
-				<p class="benefit-text">Not forcing or restricting you to gulp-chef's API.</p>
-			</div>
+				Gulp-chef requires gulp 4.0. If you have a previous version of gulp installed globally, you need to replace it with gulp-cli.
 
-			<div class="benefit">
-				<h1 class="benefit-title">DRY</h1>
-				<p class="benefit-text">By abstracting changes in configuration, you don't repeat your tasks with minor differences among projects.</p>
-			</div>
+				<div class="cli">
+					<pre>npm uninstall -g gulp</pre>
+					<pre>npm install -g "gulpjs/gulp-cli#4.0"</pre>
+				</div>
 
-		</div>
+				Don't worry, the gulp-cli is compatible with gulp 3.x, so you can continue using gulp 3.x for existing projects.
+
+				<h3>Install gulp 4.0 in your project's devDependencies</h3>
+
+				<div class="cli">
+					<pre>npm install --save-dev gulpjs/gulp#4.0</pre>
+				</div>
+
+				<h3>Install gulp-chef in your project's devDependencies</h3>
+
+				<div class="cli">
+					<pre>npm install --save-dev gulp-chef</pre>
+				</div>
+
+				<h3>Optionally, install required plugins in your project's devDependencies</h3>
+
+				<div class="cli">
+					<pre>npm install --save-dev gulp-ccr-browserify gulp-ccr-postcss browserify-shim stringify stylelint postcss-import postcss-cssnext lost cssnano</pre>
+				</div>
+
+				<h3>Create a gulpfile.js at the root of your project</h3>
+
+				<div sample class="sample-code"></div>
+
+				<h3>Run gulp</h3>
+
+				<div class="cli">
+					<pre>gulp</pre>
+				</div>
+			</div>
+		</section>
 	</div>
 </div>

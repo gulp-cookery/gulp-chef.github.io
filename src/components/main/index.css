@@ -1,16 +1,9 @@
 /* main styles */
 
-@import "highlight";
-
-.main-info {
-	width: 100%;
-	height: 100%;
-}
+@import "highlight.js/styles/sunburst";
 
 .main-header {
-  height: 100%;
-  width: 100%;
-  min-height: 450px;
+  height: 100vh;
   color: #fff;
   text-align: center;
   background-color: #cf4646;
@@ -105,19 +98,21 @@
 }
 
 .main-info-content {
-  lost-center: 1024px;
   background-color: #fff;
 }
 
-.section {
+.section-content {
+  lost-center: 768px 50px;
   min-height: 150px;
+
+  & h2 {
+	  text-align: center;
+	  font-size: 2.25rem;
+	  font-weight: normal;
+  }
 }
 
-.benefits {
-  lost-center: 1024px 50px;
-  margin: 100px 0 100px 0;
-
-  & .benefit {
+.benefit {
     margin: 50px 0;
 	clear: both;
 
@@ -148,45 +143,44 @@
       font-size: 16px;
       line-height: 26px;
     }
-  }
 }
 
-.getting-started {
+.installation {
+	background: #48cfad;
+	color: #fff;
+	padding: 30px;
+	font-size: 1rem;
+
+	& .cli {
+		lost-center: 768px;
+		& pre {
+			padding: 1em;
+			background-color: #bfe6ed;
+			border-radius: .35em;
+			white-space: pre-wrap;
+			color: #000;
+		}
+	}
 }
 
-.sample {
-  min-height: 150px;
+.sample-code {
+	lost-center: 768px;
+	font-size: 1rem;
+	color: #fff;
+	background: #1d1f21;
+	padding: 10px;
+	border-radius: .35em;
 
-  & .sample-code {
-	lost-column: 1/2;
-
-    font-size: 16px;
-    line-height: 18px;
-
-    & code {
-      border-radius: 2px;
-    }
-
-    @media screen and (max-width: 768px) {
-	  width: 100%;
-    }
-  }
-
-  .sample-text {
-	lost-column: 1/2;
-
-    margin-bottom: 1.5em;
-    font-size: 18px;
-    line-height: 20px;
-    color: #555;
-
-    @media screen and (max-width: 768px) {
-	  width: 100%;
-    }
-  }
+	& code {
+		border-radius: 2px;
+	}
 }
 
-.document {
+.sample-text {
+	margin-bottom: 1.5em;
+	font-size: 18px;
+	line-height: 20px;
+	color: #555;
 }
 
 @keyframes fadein {

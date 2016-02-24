@@ -75,7 +75,7 @@ module.exports = ['$scope', '$http', '$location', '$q', function PluginListCtrl(
 			function (plugin) {
 				return plugin.name;
 			}
-			));
+		));
 	};
 
 	$q.all([$http.get('blackList.json'), makeRequest(0, initialFetchSize)])

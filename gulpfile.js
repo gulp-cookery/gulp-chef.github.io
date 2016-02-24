@@ -6,6 +6,8 @@ var chef = require('gulp-chef');
 var browserSync = require('browser-sync');
 var ghpages = require('gulp-gh-pages');
 
+var bd = require('browserify-markdown')();
+
 var ingredients = {
 	src: 'src/',
 	dest: 'dist/',
@@ -31,7 +33,8 @@ var ingredients = {
 			bundle: {
 				entry: 'index.js',
 				file: 'scripts.js',
-				transform: ['stringify', 'browserify-shim'],
+				transforms: ['stringify', 'browserify-shim', bd],
+				extensions: ['.js', '.md'],
 				production: {
 					uglify: true
 				}
@@ -42,13 +45,7 @@ var ingredients = {
 			recipe: 'postcss',
 			processors: {
 				import: {},
-				cssnext: {
-					features: {
-						autoprefixer: {
-							browser: 'last 2 versions'
-						}
-					}
-				},
+				cssnext: {},
 				lost: {},
 				production: {
 					cssnano: {}
