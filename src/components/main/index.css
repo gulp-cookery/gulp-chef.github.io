@@ -97,6 +97,16 @@
   }
 }
 
+.social-buttins {
+	position: absolute;
+	right: 12px;
+	bottom: 12px;
+
+	& iframe {
+		float: right;
+	}
+}
+
 .main-info-content {
   background-color: #fff;
 }
