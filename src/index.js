@@ -21,7 +21,11 @@ function AppController($router) {
 require('angular-route');
 
 angular.module('site', ['ngRoute', 'main-info', 'plugin-list'])
-.config(['$routeProvider', function ($routeProvider) {
+.config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
+    // @see: https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions
+    // #how-to-configure-your-server-to-work-with-html5mode
+    $locationProvider.html5Mode(true).hashPrefix('!');
+
 	$routeProvider
 	.when('/', {
 		controller: 'MainCtrl',
